@@ -32,22 +32,27 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'AcademyC', sans-serif;
-  font-size: 20px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
   line-height: 1.2;
+  font-weight: 400;
 }
 
 .wrapper {
   width: 100%;
   min-width: 320px;
   overflow: hidden;
+  background: url(../source/images/background.jpg) no-repeat top center;
 }
 
 .wrapper-inner {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1230px;
   margin: 0 auto;
-  padding: 0 15px;
+
+  @media (max-width: 1260px) {
+    padding: 15px;
+  }
 
   @media (max-width: 768px) {
     padding: 0 10px;
@@ -122,17 +127,384 @@ input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
+h1 {
+
+}
+
+h2 {
+  font-size: 27px;
+  color: #990000;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.custom-select {
+  display: block;
+
+  .current-value {
+    cursor: pointer;
+  }
+
+  ul {
+    display: none;
+  }
+
+  &.active {
+
+    ul {
+      display: block;
+    }
+
+  }
+
+}
+
+.location-phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link-phone {
+  display: block;
+  font-size: 25px;
+  color: #ff9900;
+  margin-right: 60px;
+}
+
+.select-city {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 29px;
+    background: url(../source/images/icon-geo.png) no-repeat 0 0;
+    background-size: cover;
+    position: absolute;
+    left: -30px;
+    top: -5px;
+  }
+
+  .current-value {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1;
+    position: relative;
+    padding-right: 20px;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid #ff9900;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      position: absolute;
+      top: 8px;
+      right: 0;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 2px solid #000;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      position: absolute;
+      top: 8px;
+      right: 3px;
+    }
+
+  }
+
+  &.active {
+
+    .current-value {
+
+      &:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: none;
+        border-bottom: 5px solid #ff9900;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        position: absolute;
+        top: 8px;
+        right: 0;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: none;
+        border-bottom: 2px solid #000;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        position: absolute;
+        top: 8px;
+        right: 3px;
+      }
+
+    }
+
+  }
+
+}
+
 /***********************************************************************************************************************
 *********** header
 ***********************************************************************************************************************/
 
 header[role='banner'] {
+  background: url(../source/images/decor-header-left.png) no-repeat -40px top,
+              #000 url(../source/images/decor-header-right.png) no-repeat ~"calc(100% + 40px)" top;
+  background-size: auto 100%, auto 100%;
+  padding: 15px 0;
+
+  .wrapper-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 39px;
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+      margin-right: 10px;
+    }
+
+    span {
+      font-family: 'PF AgoraSansPro Medium', sans-serif;
+      font-size: 22px;
+      color: #fff;
+    }
+
+  }
 
 }
+
+/***********************************************************************************************************************
+*********** top-block
+***********************************************************************************************************************/
+
+.top-block {
+  height: 697px;
+  background: url(../source/images/background-top.png) no-repeat top center;
+}
+
+/***********************************************************************************************************************
+*********** terms-of-connection
+***********************************************************************************************************************/
+
+.terms-of-connection {
+  padding: 50px 0;
+  text-align: center;
+
+  .text {
+    font-size: 20px;
+
+    span {
+      display: block;
+      font-weight: 700;
+
+      a {
+        font-weight: inherit;
+      }
+
+    }
+
+  }
+
+  .terms {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 50px 0;
+
+    li {
+      display: block;
+      width: 140px;
+      font-weight: 700;
+      color: #990000;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #ff9900 url(../source/images/sprite-1.png) no-repeat 0 0;
+        background-size: cover;
+        margin: 0 auto 20px;
+      }
+
+      &:nth-child(2):before{background-position: -100px 0}
+      &:nth-child(3):before{background-position: -200px 0}
+      &:nth-child(4):before{background-position: -300px 0}
+      &:nth-child(5):before{background-position: -400px 0}
+      &:nth-child(6):before{background-position: -500px 0}
+      &:nth-child(7):before{background-position: -600px 0}
+
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-bottom: 10px solid #ff9900;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        position: absolute;
+        left: 60px;
+        top: 92px;
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+        transform: rotate(10deg);
+      }
+
+    }
+
+  }
+
+  .advantages {
+    display: block;
+    margin: 50px 0;
+
+    li {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      vertical-align: top;
+      width: 270px;
+      height: 160px;
+      border: 3px solid #990000;
+      border-radius: 80px;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 15px;
+      position: relative;
+      white-space: pre;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 40px;
+        background: url(../source/images/icon-ok-2.png) no-repeat center;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: -20px;
+      }
+
+    }
+
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** you-need
+***********************************************************************************************************************/
+
+.you-need {
+  text-align: center;
+
+  .wrapper-inner {
+    background: #fff;
+    padding: 20px 60px;
+    border-radius: 0 100px 100px 100px;
+  }
+
+  ul {
+    display: block;
+    width: 100%;
+
+    li {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      justify-content: center;
+      width: 160px;
+      white-space: pre-wrap;
+      font-style: italic;
+      margin: 20px;
+      position: relative;
+
+      img {
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      span {
+        display: block;
+        font-weight: 700;
+        font-style: inherit;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(to right, #999 0, #999 5px, transparent 5px, transparent 7px) repeat-x 0 0;
+        background-size: 7px 2px;
+        position: absolute;
+        top: 90px;
+        left: ~"calc(100% + 5px)";
+      }
+
+    }
+
+  }
+
+}
+
 /***********************************************************************************************************************
 ***********
 ***********************************************************************************************************************/
 
+
+/***********************************************************************************************************************
+*********** footer
+***********************************************************************************************************************/
+
+/***********************************************************************************************************************
+***********
+***********************************************************************************************************************/
+
+
+/***********************************************************************************************************************
+***********
+***********************************************************************************************************************/
+
+
+/***********************************************************************************************************************
+*********** footer
+***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 ***********
