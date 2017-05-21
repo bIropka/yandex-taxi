@@ -96,23 +96,23 @@ p {
 }
 
 input::-webkit-input-placeholder {
-  color: #333;
-  font-size: 16px;
+  color: #8a9193;
+  font-size: 14px;
 }
 
 input::-moz-placeholder {
-  color: #333;
-  font-size: 16px;
+  color: #8a9193;
+  font-size: 14px;
 }
 
 input:-moz-placeholder {
-  color: #333;
-  font-size: 16px;
+  color: #8a9193;
+  font-size: 14px;
 }
 
 input:-ms-input-placeholder {
-  color: #333;
-  font-size: 16px;
+  color: #8a9193;
+  font-size: 14px;
 }
 
 input:focus::-webkit-input-placeholder {
@@ -129,6 +129,10 @@ input:focus:-moz-placeholder {
 
 input:focus:-ms-input-placeholder {
   color: transparent;
+}
+
+input:focus {
+  outline: none;
 }
 
 h1 {
@@ -709,7 +713,6 @@ header[role='banner'] {
 ***********************************************************************************************************************/
 
 .questionnaire {
-  background: url(../source/images/background-car.png) no-repeat top center;
 
   .form-questionnaire {
     display: flex;
@@ -717,19 +720,18 @@ header[role='banner'] {
     justify-content: space-between;
     align-items: flex-start;
     align-content: flex-start;
+    width: 1060px;
+    margin: 0 auto;
   }
 
   fieldset {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
     border: none;
+    width: 510px;
   }
 
   label {
     display: block;
+    margin: 10px 0;
   }
 
   .label-short {
@@ -744,15 +746,141 @@ header[role='banner'] {
     width: 100%;
   }
 
+  .data-driver {
+
+    .label-short {
+      float: right;
+    }
+
+    .label-long, .label-full {
+      float: left;
+    }
+
+  }
+
+  .data-car {
+
+    .label-short, .label-full {
+      float: left;
+    }
+
+    .select-form {
+      width: 290px;
+      float: right;
+    }
+
+  }
+
   input {
     display: block;
     width: 100%;
     height: 50px;
-    border: #d6d6d6;
+    padding: 0 20px;
+    border: 1px solid #d6d6d6;
+    border-radius: 0 25px 25px 25px;
+    background: #fff;
+  }
+
+  .label-date {
+    position: relative;
+
+    input {
+      padding: 0 45px 0 20px;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 22px;
+      background: url(../source/images/icon-calendar.png) no-repeat 0 0;
+      background-size: cover;
+      position: absolute;
+      margin: auto;
+      right: 15px;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+
   }
 
   .select-options {
+    width: 830px;
+    float: left;
+    margin: 10px 0;
+  }
+
+  button[type="submit"] {
+    width: 210px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(to right, #cc0000, #990000);
+    border-radius: 0 25px 25px 25px;
+    float: right;
+    margin: 10px 0;
+
+    &:hover {
+      background: linear-gradient(to left, #cc0000, #990000);
+    }
+  }
+
+}
+
+.select-form {
+  border: 1px solid #d6d6d6;
+  border-radius: 0 25px 25px 25px;
+  background: #fff;
+  margin: 10px 0;
+
+  .current-value {
     width: 100%;
+    height: 50px;
+    line-height: 48px;
+    padding: 0 45px 0 20px;
+    color: #8a9193;
+    font-size: 14px;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid #d6d6d6;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      position: absolute;
+      top: 22px;
+      right: 20px;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 2px solid #fff;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      position: absolute;
+      top: 22px;
+      right: 23px;
+    }
+
+  }
+
+}
+
+.select-options {
+
+  .current-value {
+    cursor: pointer;
+  }
+
+  ul {
+    display: none;
   }
 
 }
