@@ -1,7 +1,27 @@
 $(window).ready(function () {
 
+    $(document).click(function(event) {
+
+        if (!$(event.target).closest(".custom-select").length) {
+            $('.custom-select').removeClass('active');
+        }
+
+        if (!$(event.target).closest(".select-options").length) {
+            $('.select-options').removeClass('active');
+        }
+
+    });
+
     $('.custom-select .current-value').click(function() {
-        $(this).parent().toggleClass('active');
+
+        if($(this).hasClass('active')) {
+            $(this).parent().removeClass('active');
+        } else {
+            $('.custom-select').removeClass('active');
+            $('.select-options').removeClass('active');
+            $(this).parent().addClass('active');
+        }
+
     });
 
     $('.select-city ul li').click(function() {
@@ -66,6 +86,28 @@ $(window).ready(function () {
         var curNumber = $(this).parent().attr('id').split('#')[1];
         $(this).parent().detach();
         $('.select-options ul li').eq(curNumber).removeClass('active');
+    });
+
+    $('.fill-in-questionnaire').click(function() {
+        $('html, body').animate({scrollTop: $('.questionnaire').offset().top - 50}, 600);
+    });
+
+    $('.callback').click(function() {
+        $('.window-callback').fadeIn();
+    });
+
+    $('.ask-question').click(function() {
+        $('.window-question').fadeIn();
+    });
+
+    $('.window').click(function (event) {
+        $target = $(event.target);
+        if (!$target.closest($('.window-inner')).length) {
+            $('.window').fadeOut();
+        }
+        if ($target.hasClass('close-window')){
+            $('.window').fadeOut();
+        }
     });
 
 });
