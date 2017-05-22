@@ -1016,11 +1016,6 @@ header[role='banner'] {
     transform: translateY(0);
   }
 }
-.hvr-wobble-vertical {
-  display: inline-block;
-  vertical-align: middle;
-
-}
 
 /***********************************************************************************************************************
 *********** steps
@@ -1139,6 +1134,8 @@ header[role='banner'] {
 
     @media(max-width: 1260px) {
       width: 100%;
+      padding-bottom: 70px;
+      position: relative;
     }
 
   }
@@ -1272,6 +1269,11 @@ header[role='banner'] {
     width: 830px;
     float: left;
     margin: 10px 0;
+
+    @media(max-width: 1260px) {
+      width: 100%;
+    }
+
   }
 
   button[type="submit"] {
@@ -1286,6 +1288,14 @@ header[role='banner'] {
 
     &:hover {
       background: linear-gradient(to left, #cc0000, #990000);
+    }
+
+    @media(max-width: 1260px) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
     }
 
     @media(max-width: 480px) {
@@ -1527,6 +1537,7 @@ header[role='banner'] {
     text-transform: uppercase;
     position: relative;
     margin-right: 10px;
+    margin-bottom: 10px;
     .clearfix();
 
     .option-close {
@@ -1706,7 +1717,7 @@ header[role='banner'] {
       bottom: 0;
       left: 0;
       z-index: 10;
-      .smooth(.4s);
+      .smooth(.1s);
     }
 
     &:after {
@@ -1723,7 +1734,7 @@ header[role='banner'] {
       bottom: 0;
       left: 144px;
       z-index: 15;
-      .smooth(.4s);
+      .smooth(.1s);
     }
 
     &:hover {
